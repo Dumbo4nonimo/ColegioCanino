@@ -22,4 +22,3 @@ urlpatterns = [
     path('api/', include('login.api.urls')),
 ]
 
-
