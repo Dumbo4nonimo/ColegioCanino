@@ -50,15 +50,3 @@ class UserApiViewSet(ModelViewSet):
         except KeyError:
             pass
         return Response(serializer.data)
-
-    def destroy(self, request, *args, **kwargs):
-        user = self.get_object()
-        user.deleted_at = datetime.now()
-        user.save()
-        serializer = LoginSerializer(user)
-        data = {
-            'status': 'ok',
-
-        }
-        return Response(data=data)
-
